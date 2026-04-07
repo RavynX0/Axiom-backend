@@ -1,21 +1,17 @@
 let tasks = [];
 
-const getTasks = (req, res) => {
-    res.json(tasks);
+const createTask = (req, res) => {
+    console.log("POST task controller hit");
+
+    const newTask = req.body;
+    tasks.push(newTask);
+    res.send({
+        message: "Task added successfully",
+        task: newTask,
+        allTasks: tasks
+    });
 };
 
-const createTasks = (req, res) => {
-    console.log("POST /tasks route is running");
-
-    const { title } = req.body;
-
-    if (!title || title.trim === "") {
-        
-    }
-
-
-
-    
-
-
-};
+module.exports = {
+    createTask
+}; 
