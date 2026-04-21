@@ -54,10 +54,12 @@ const updateTask = (req, res) => {
                 ...task,
                 ...req.body
             };
-        };
+        }
+
+        return task;
     });
 
-    res.send({
+    res.json({
         message: "Task updated successfully",
         allTasks: tasks
     });
